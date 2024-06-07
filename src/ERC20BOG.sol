@@ -8,10 +8,9 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract ETHBOG is ERC20, ERC20Burnable, ERC20Pausable, Ownable {
-    constructor(
-        address initialOwner
-    ) ERC20("ETHBOG", "BOG") Ownable(initialOwner) {
-        _mint(msg.sender, 1000000 * 10 ** decimals());
+    constructor(address initialOwner) ERC20("ETHBOG", "BOG") Ownable(initialOwner) {
+        
+        _mint( initialOwner, 1000000 * 10 ** decimals());
     }
 
     function pause() public onlyOwner {

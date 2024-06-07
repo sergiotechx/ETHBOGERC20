@@ -4,6 +4,7 @@ pragma solidity ^0.8.20;
 import {Script, console} from "forge-std/Script.sol";
 import {ETHBOG} from "../src/ERC20BOG.sol";
 
+
 contract ETHBOGScript is Script {
     function setUp() public {}
 

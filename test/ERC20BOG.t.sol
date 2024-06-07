@@ -1,24 +1,30 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import {Test, console} from "forge-std/Test.sol";
-//import {Counter} from "../src/Counter.sol";
+import "forge-std/Test.sol";
+import "../src/ERC20BOG.sol";
+import "forge-std/console.sol";
 
-contract CounterTest is Test {
-   /* Counter public counter;
+contract ETHBOGTest is Test {
+    ETHBOG private ethbog;
+    address private owner = address(0x123);
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
+        ethbog = new ETHBOG(owner);
     }
 
-    function test_Increment() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
+    function testInitialSupply() public {
+        uint256 initialSupply = 1000000 * 10 ** ethbog.decimals();
+        assertEq(ethbog.balanceOf(owner), initialSupply);
     }
 
-    function testFuzz_SetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
-    }*/
+    function testPauseAndUnpause() public {
+        vm.prank(owner);
+        ethbog.pause();
+        assertTrue(ethbog.paused());
+
+        vm.prank(owner);
+        ethbog.unpause();
+        assertFalse(ethbog.paused());
+    }
 }
