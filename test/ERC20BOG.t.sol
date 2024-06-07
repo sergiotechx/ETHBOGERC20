@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 import "../src/ERC20BOG.sol";
 import "forge-std/console.sol";
 
+
 contract ETHBOGTest is Test {
     ETHBOG private ethbog;
     address private owner = address(0x123);

@@ -12,6 +12,7 @@ contract ETHBOG is ERC20, ERC20Burnable, ERC20Pausable, Ownable {
         
         _mint( initialOwner, 1000000 * 10 ** decimals());
     }
+    
 
     function pause() public onlyOwner {
         _pause();
